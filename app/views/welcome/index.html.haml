@@ -1,6 +1,6 @@
 %main{:role => "main"}
   %section
-    .container
+    .container.jumbotron.c-home-jumbotron
       %h1.jumbotron-heading.font-weight-bold.text-center Ceci est un test d'algorithmie
       %p.lead.text-center Utilisé par des millions de personnes, Trello optimise l'activité des équipes dans le monde entier.
       %p
@@ -9,77 +9,3 @@
         %li{:style => "display:table;margin:0px auto 0px auto;"} Lodash et jQuery sont déjà chargées
       %p.text-center
         %a.btn.btn-primary.btn-lg.btn-success.font-weight-bold{:href => "#"} Main call to action
-      %table.table{:style => "table-layout: fixed;"}
-        %thead
-          %tr
-            %th Test
-            %th Expectation
-            %th Result
-            %th Status
-        %tbody
-          %tr
-            %th{:scope => "row"} f(1)
-            %td "foo"
-            %td **exception raised**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(2)
-            %td "bar"
-            %td **function f does not exists**
-            %td
-              %span.badge.badge-pill.badge-danger ✕ Fail
-          %tr
-            %th{:scope => "row"} f(3)
-            %td "qix"
-            %td "qix"
-            %td
-              %span.badge.badge-pill.badge-success ✓ Pass
