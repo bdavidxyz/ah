@@ -1,4 +1,8 @@
-$font-family-base: 'Lora';
+
+
+$font-family-base: 'Lato';
+$font-weight-xbold:            900 !default;
+.font-weight-xbold   { font-weight: $font-weight-xbold !important; }
 
 $spacer: 1rem;
 $spacers: ();
