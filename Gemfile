@@ -17,7 +17,6 @@ gem "jbuilder", "~> 2.5"
 gem "autoprefixer-rails"
 gem "haml"
 gem "administrate"
-gem "administrate-field-json",  github: 'bdavidxyz/administrate-field-json'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

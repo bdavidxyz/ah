@@ -11,7 +11,7 @@ class QuestionDashboard < Administrate::BaseDashboard
     id: Field::Number,
     title: Field::String,
     description: Field::Text,
-    tests: Field::String.with_options(searchable: false),
+    tests: Field::Text,
     initial: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
