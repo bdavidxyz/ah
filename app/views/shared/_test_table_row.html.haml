@@ -1,0 +1,10 @@
+- v = view_object(:test_table_row, local_assigns)
+
+%tr.tr-test{"id"=> "tr#{v.position}"}
+  %td{"id"=> "testing#{v.position}"} 
+    = v.test_function
+  %td{"id"=> "expecting#{v.position}"} 
+    = v.test_expectation
+  %td 
+  %td.td-result{"id"=> "resulting#{v.position}"} 
+    %span.badge.badge-pill

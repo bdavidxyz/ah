@@ -8,12 +8,12 @@
       %th Result
       %th Status
   %tbody
-    - v.tests.each do |t|
-      %tr
-        %td{:scope => "row"} 
+    - v.tests.each_with_index do |t, i|
+      %tr.tr-test{"id"=> "tr#{i+1}"}
+        %td{"id"=> "testing#{i+1}"} 
           = t[:test_function]
-        %td 
+        %td{"id"=> "expecting#{i+1}"} 
           = t[:test_expectation]
         %td 
-        %td
-          %span.badge.badge-pill.badge-success ✓ Pass       
+        %td.td-result{"id"=> "resulting#{i+1}"} 
+          %span.badge.badge-pill
