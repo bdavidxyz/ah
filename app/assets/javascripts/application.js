@@ -4,3 +4,9 @@
 //= require jquery/jquery
 //= require popper/popper
 //= require bootstrap/bootstrap
+//= require codemirror/codemirror
+//= require codemirror/javascript
+//= require codemirror/eslint
+//= require codemirror/lint
+//= require codemirror/eslint-lint
+//= require codemirror/closebrackets
