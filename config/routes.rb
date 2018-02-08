@@ -3,12 +3,9 @@ Rails.application.routes.draw do
     resources :questions
     root to: "questions#index"
   end
-  namespace :question do
-    get 'facile', to: 'question#facile'
-    get 'diffile', to: 'question#difficle'
-    root 'question#index'
-  end
 
+  get 'question/facile', to: 'question#facile'
+  get 'question/difficile', to: 'question#difficile'
   get 'welcome/index' 
   root 'welcome#index'
 end

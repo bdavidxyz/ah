@@ -1,0 +1,32 @@
+%main{:role => "main"}
+
+  %nav.navbar.navbar-light.bg-light
+    %a.navbar-brand.text-muted{:href => "#"} AlgoHero.Io
+
+  %section
+    .container
+      .row
+        .col
+          %textarea{id:'editor'}
+
+        .col
+          %table.table
+            %thead
+              %tr
+                %th Test
+                %th Expectation
+                %th Result
+                %th Status
+            %tbody
+              %tr
+                %th{:scope => "row"} f(3)
+                %td "qix"
+                %td "qix"
+                %td
+                  %span.badge.badge-pill.badge-success ✓ Pass
+              %tr
+                %th{:scope => "row"} f(2)
+                %td "bar"
+                %td ** function f does not exists**
+                %td
+                  %span.badge.badge-pill.badge-danger ✕ Fail
