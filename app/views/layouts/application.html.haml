@@ -7,6 +7,9 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://fonts.googleapis.com/css?family=Nunito:400,700,800", :rel => "stylesheet"}/
-  %body{:class => "#{controller_name} #{action_name}"}
+  %body{:class => "c-body #{controller_name} #{action_name}"}
+    %nav.navbar.navbar-light.bg-light
+      %a.navbar-brand.text-muted{:href => "#"} AlgoHero.Io
+    
     = yield
   

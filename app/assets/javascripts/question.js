@@ -19,7 +19,7 @@ $(document).on('ready turbolinks:load', function() {
         }
       }
     })
-    var editor_initial_value = $('#coleditor').attr('data-initial').replace(/\\n/g, '\n').replace(/\\t/g, '\t');
+    var editor_initial_value = $('#coleditor').attr('data-initial').replace(/\\n/g, '\n');
     editor.setValue(editor_initial_value)
     editor.focus()
     editor.setCursor({line: 2, ch: 1})
