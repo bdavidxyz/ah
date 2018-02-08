@@ -21,6 +21,9 @@ class ViewObject
   def hash_for(arg)
     arg.is_a?(Hash) ? arg.symbolize_keys : {}
   end
+  def json_for(arg)
+    arg.is_a?(String) ? (JSON.parse(string) rescue {}) : {}
+  end
   def array_of_hash_for(arg)
     arg.is_a?(Array) && arg.all?{|e| e.is_a?(Hash)} ? arg.map{|e| e.symbolize_keys} : []
   end

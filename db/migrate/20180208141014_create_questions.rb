@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration[5.1]
     create_table :questions do |t|
       t.string :title
       t.text :description
-      t.json :tests
+      t.jsonb :tests, default: "{}"
       t.text :initial
 
       t.timestamps

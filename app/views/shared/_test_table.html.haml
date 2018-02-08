@@ -8,12 +8,12 @@
       %th Result
       %th Status
   %tbody
-    - v.tests.each do |test|
+    - v.tests.each do |t|
       %tr
         %th{:scope => "row"} 
-          = test[:test_function]
+          = t[:test_function]
         %td 
-          = test[:test_expectation]
+          = t[:test_expectation]
         %td 
         %td
           %span.badge.badge-pill.badge-success ✓ Pass       

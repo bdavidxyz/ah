@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180208141014) do
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.json "tests"
+    t.jsonb "tests", default: "{}"
     t.text "initial"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

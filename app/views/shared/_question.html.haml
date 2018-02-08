@@ -1,4 +1,4 @@
-
+= local_assigns
 
 %section
   .container
@@ -7,4 +7,4 @@
         %textarea{id:'editor'}
         
       .col
-        = render 'shared/test_table', {tests: [{test_function:'f(3)', test_expectation: 'foo'}, {test_function:'f(5)', test_expectation: 'bar'}]}
+        = render 'shared/test_table', local_assigns
