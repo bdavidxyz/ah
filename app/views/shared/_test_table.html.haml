@@ -1,0 +1,19 @@
+- v = view_object(:test_table, local_assigns)
+
+%table.table
+  %thead
+    %tr
+      %th Test
+      %th Expectation
+      %th Result
+      %th Status
+  %tbody
+    - v.tests.each do |test|
+      %tr
+        %th{:scope => "row"} 
+          = test[:test_function]
+        %td 
+          = test[:test_expectation]
+        %td 
+        %td
+          %span.badge.badge-pill.badge-success ✓ Pass       

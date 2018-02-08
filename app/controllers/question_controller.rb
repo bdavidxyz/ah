@@ -1,12 +1,9 @@
-module Question
+class QuestionController < ApplicationController
 
-  class QuestionController < ApplicationController
-
-    def facile    
-    end
-
-    def difficile   
-    end
+  def facile    
   end
 
+  def difficile   
+  end
 end
+
