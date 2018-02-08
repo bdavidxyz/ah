@@ -1,10 +1,11 @@
-= local_assigns
-
 %section
   .container
     .row
-      .col
-        %textarea{id:'editor'}
+      .col{"id" => "coleditor", "data-initial" => local_assigns[:question][:initial]}
+        .row
+          = local_assigns[:question][:description].html_safe
+        .row
+          %textarea{"id" => "editor"}
         
       .col
-        = render 'shared/test_table', local_assigns
+        = render 'shared/test_table', local_assigns[:question]

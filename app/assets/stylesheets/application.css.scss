@@ -3,6 +3,7 @@
  */
 @import 'app/variables';
 @import 'bootstrap/bootstrap';
-@import 'app/components';
 @import 'codemirror/codemirror.css';
+@import 'codemirror/codemirror-override.css';
 @import 'codemirror/xq-light.css';
+@import 'app/components';

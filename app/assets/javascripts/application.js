@@ -10,3 +10,4 @@
 //= require codemirror/lint
 //= require codemirror/eslint-lint
 //= require codemirror/closebrackets
+//= require question

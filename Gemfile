@@ -17,6 +17,7 @@ gem "jbuilder", "~> 2.5"
 gem "autoprefixer-rails"
 gem "haml"
 gem "administrate"
+gem "administrate-field-ckeditor", "~> 0.0.8"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

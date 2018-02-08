@@ -10,7 +10,7 @@ class QuestionDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     title: Field::String,
-    description: Field::Text,
+    description: Field::Ckeditor,
     tests: Field::Text,
     initial: Field::Text,
     created_at: Field::DateTime,
