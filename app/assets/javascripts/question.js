@@ -39,7 +39,7 @@ $(document).on('ready turbolinks:load', function() {
         no_compilation_error = false
       } finally {
         var no_lint_error = $('.CodeMirror-lint-marker-error').length === 0
-        if (no_lint_error && no_compilation_error && (typeof window.f === 'function')) {
+        if (no_compilation_error && (typeof window.f === 'function')) {
 
           _.times($('.trtest').length, function(index){
             var local_index  = index + 1
@@ -52,7 +52,7 @@ $(document).on('ready turbolinks:load', function() {
               evaluation = "**error**"
             } finally {
               r_target = $("#badging" + local_index + " .badge")
-              var stringified = _.isUndefined(evaluation) ? "undefined" : JSON.stringify(evaluation)
+              var stringified = _.isUndefined(evaluation) ? "undefined" : _.isEqual(evaluation, "**error**") ? "**error**" : JSON.stringify(evaluation)
               $("#resulting" + local_index).text(stringified);
               if (evaluation === expectation) {
                 r_target.addClass("badge-success");
@@ -62,20 +62,15 @@ $(document).on('ready turbolinks:load', function() {
                 r_target.removeClass("badge-success");
                 r_target.addClass("badge-danger");
                 r_target.text("✕ Fail");
-                // $("#tr" + local_index).addClass("red");
-                // $("#tr" + local_index).removeClass("green");
               }
             }
           });
 
-        } else {
-          _.times($('.trtest').length, function(index){
-            var local_index  = index + 1
-            $("#tr" + local_index).removeClass("green")
-            $("#tr" + local_index).removeClass("red")
-            $("#badging" + local_index).text("");
-          });
-       }
+        } else if (no_compilation_error) {
+          console.log('no compilation, sorry')
+        } else if (!(typeof window.f === 'function')) {
+          console.log('no window.f, sorry')
+        }
      } 
 
    };
