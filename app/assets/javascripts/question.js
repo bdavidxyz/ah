@@ -1,6 +1,9 @@
+
 $(document).on('ready turbolinks:load', function() {
   if ($('body').hasClass('question')) {
 
+    console.log('booom')
+    $('.CodeMirror').remove()
     var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
       lineNumbers: true,
       mode: "javascript",
@@ -57,11 +60,11 @@ $(document).on('ready turbolinks:load', function() {
               if (evaluation === expectation) {
                 r_target.addClass("badge-success");
                 r_target.removeClass("badge-danger");
-                r_target.text("✓ Pass");
+                r_target.text("✓ Reussi");
               } else {
                 r_target.removeClass("badge-success");
                 r_target.addClass("badge-danger");
-                r_target.text("✕ Fail");
+                r_target.text("✕ Echoue");
               }
             }
           });

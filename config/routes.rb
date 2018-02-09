@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get 'question/facile', to: 'question#facile'
   get 'question/difficile', to: 'question#difficile'
   get 'welcome/index' 
+  get 'final/index' 
   root 'welcome#index'
 end
