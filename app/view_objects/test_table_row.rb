@@ -16,5 +16,6 @@ class TestTableRow < ViewObject
   end
 
   def _is_ok
+    return true
   end
 end
