@@ -22,7 +22,7 @@ $(document).on('ready turbolinks:load', function() {
     var editor_initial_value = $('#coleditor').attr('data-initial').replace(/\\n/g, '\n');
     editor.setValue(editor_initial_value)
     editor.focus()
-    editor.setCursor({line: 2, ch: 1})
+    editor.setCursor({line: 4, ch: 3})
 
     editor.on('change',function(cMirror){
       check_wisely();
@@ -32,14 +32,14 @@ $(document).on('ready turbolinks:load', function() {
     });
 
     function check_wisely(){
-      var no_error = true;
+      var no_compilation_error = true;
       try {
         window.eval(editor.getValue());
       } catch(e) {
-        no_error = false
+        no_compilation_error = false
       } finally {
-        var no_warning = $('.CodeMirror-lint-marker-error').length === 0
-        if (no_warning && no_error && (typeof window.f === 'function')) {
+        var no_lint_error = $('.CodeMirror-lint-marker-error').length === 0
+        if (no_lint_error && no_compilation_error && (typeof window.f === 'function')) {
 
           _.times($('.trtest').length, function(index){
             var local_index  = index + 1
@@ -51,32 +51,30 @@ $(document).on('ready turbolinks:load', function() {
             } catch(e) {
               evaluation = "**error**"
             } finally {
+              r_target = $("#badging" + local_index + " .badge")
+              var stringified = _.isUndefined(evaluation) ? "undefined" : JSON.stringify(evaluation)
+              $("#resulting" + local_index).text(stringified);
               if (evaluation === expectation) {
-                if ($("#tr" + local_index).hasClass('red')) {
-                  $("#tr" + local_index).pulse({times: 2, duration: 100});
-                }
-                $("#tr" + local_index).addClass("green");
-                $("#tr" + local_index).removeClass("red");
-                $("#resulting" + local_index).text("✓");
+                r_target.addClass("badge-success");
+                r_target.removeClass("badge-danger");
+                r_target.text("✓ Pass");
               } else {
-                if ($("#tr" + local_index).hasClass('green')) {
-                  $("#tr" + local_index).pulse({times: 2, duration: 100});
-                }
-                $("#tr" + local_index).addClass("red");
-                $("#tr" + local_index).removeClass("green");
-                var stringified = _.isUndefined(evaluation) ? "undefined" : JSON.stringify(evaluation)
-                $("#resulting" + local_index).text(stringified);
+                r_target.removeClass("badge-success");
+                r_target.addClass("badge-danger");
+                r_target.text("✕ Fail");
+                // $("#tr" + local_index).addClass("red");
+                // $("#tr" + local_index).removeClass("green");
               }
             }
           });
 
         } else {
           _.times($('.trtest').length, function(index){
-          var local_index  = index + 1
-          $("#tr" + local_index).removeClass("green")
-          $("#tr" + local_index).removeClass("red")
-          $("#resulting" + local_index).text("");
-        });
+            var local_index  = index + 1
+            $("#tr" + local_index).removeClass("green")
+            $("#tr" + local_index).removeClass("red")
+            $("#badging" + local_index).text("");
+          });
        }
      } 
 

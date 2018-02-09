@@ -2,7 +2,7 @@
   .container
     .row
       .col{"id" => "coleditor", "data-initial" => local_assigns[:question][:initial]}
-        .row
+        .row.d-flex.flex-column
           = local_assigns[:question][:description].html_safe
         .row
           %textarea{"id" => "editor"}

@@ -9,11 +9,11 @@
       %th Status
   %tbody
     - v.tests.each_with_index do |t, i|
-      %tr.tr-test{"id"=> "tr#{i+1}"}
+      %tr.trtest{"id"=> "tr#{i+1}"}
         %td{"id"=> "testing#{i+1}"} 
           = t[:test_function]
         %td{"id"=> "expecting#{i+1}"} 
           = t[:test_expectation]
-        %td 
         %td.td-result{"id"=> "resulting#{i+1}"} 
+        %td{"id"=> "badging#{i+1}"} 
           %span.badge.badge-pill

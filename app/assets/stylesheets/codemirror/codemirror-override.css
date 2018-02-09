@@ -1,3 +1,8 @@
 .CodeMirror {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
+.CodeMirror-cursor {
+    border-left: 3px solid black;
+}
+.cm-s-xq-light span.cm-string { color: #ff00e6; }
+.cm-s-xq-light span.cm-number { color: #ff00e6; }
