@@ -15,5 +15,9 @@
         %td{"id"=> "expecting#{i+1}"} 
           = t[:test_expectation]
         %td.td-result{"id"=> "resulting#{i+1}"} 
-        %td{"id"=> "badging#{i+1}"} 
-          %span.badge.badge-pill
+        %td.td-oracle{"id"=> "badging#{i+1}"} 
+          .front
+            %span.badge.badge-pill.badge-success ✓ Reussi
+          .back
+            %span.badge.badge-pill.badge-danger ✕ Echoue        
+          

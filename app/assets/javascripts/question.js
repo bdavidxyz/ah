@@ -27,6 +27,11 @@ $(document).on('ready turbolinks:load', function() {
     editor.focus()
     editor.setCursor({line: 4, ch: 3})
 
+
+    _.times($('.td-oracle').length, function(counter) {
+      $('#badging' + (counter + 1)).flip({trigger: 'manual'});
+    });
+
     editor.on('change',function(cMirror){
       check_wisely();
       editor.refresh();
@@ -54,22 +59,24 @@ $(document).on('ready turbolinks:load', function() {
             } catch(e) {
               evaluation = "**error**"
             } finally {
-              r_target = $("#badging" + local_index + " .badge")
+              r_target = $("#badging" + local_index)
               r_line = $("#tr" + local_index)
               var stringified = _.isUndefined(evaluation) ? "undefined" : _.isEqual(evaluation, "**error**") ? "**error**" : JSON.stringify(evaluation)
               $("#resulting" + local_index).text(stringified);
               if (evaluation === expectation) {
-                r_target.addClass("badge-success");
+                // r_target.addClass("badge-success");
                 r_line.addClass("green");
                 r_line.removeClass("red");
-                r_target.removeClass("badge-danger");
-                r_target.text("✓ Reussi");
+                r_target.flip(false);
+                // r_target.removeClass("badge-danger");
+                // r_target.text("✓ Reussi");
               } else {
-                r_target.removeClass("badge-success");
+                // r_target.removeClass("badge-success");
+                r_target.flip(true);
                 r_line.addClass("red");
                 r_line.removeClass("green");
-                r_target.addClass("badge-danger");
-                r_target.text("✕ Echoue");
+                // r_target.addClass("badge-danger");
+                // r_target.text("✕ Echoue");
               }
             }
           });
