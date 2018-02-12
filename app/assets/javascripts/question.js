@@ -55,14 +55,19 @@ $(document).on('ready turbolinks:load', function() {
               evaluation = "**error**"
             } finally {
               r_target = $("#badging" + local_index + " .badge")
+              r_line = $("#tr" + local_index)
               var stringified = _.isUndefined(evaluation) ? "undefined" : _.isEqual(evaluation, "**error**") ? "**error**" : JSON.stringify(evaluation)
               $("#resulting" + local_index).text(stringified);
               if (evaluation === expectation) {
                 r_target.addClass("badge-success");
+                r_line.addClass("green");
+                r_line.removeClass("red");
                 r_target.removeClass("badge-danger");
                 r_target.text("✓ Reussi");
               } else {
                 r_target.removeClass("badge-success");
+                r_line.addClass("red");
+                r_line.removeClass("green");
                 r_target.addClass("badge-danger");
                 r_target.text("✕ Echoue");
               }
