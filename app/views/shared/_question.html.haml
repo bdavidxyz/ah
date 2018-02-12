@@ -1,15 +1,16 @@
+- v = view_object(:question_view, local_assigns)
 %section
   .container
     .row
-      .col{"id" => "coleditor", "data-initial" => local_assigns[:question][:initial]}
+      .col{"id" => "coleditor", "data-initial" => v.initial}
         .row.d-flex.flex-column
-          = local_assigns[:question][:description].html_safe
+          = v.description
         .row.mt-3
           %textarea{"id" => "editor"}
         
       .col
-        = render 'shared/test_table', local_assigns[:question]
+        = render 'shared/test_table', v.question
     .row.justify-content-center
-      %a.btn.btn-success.btn-lg.c-button-answer{href:final_index_path}
+      %a.btn.btn-success.btn-lg.c-button-answer{href:v.validation_href}
         Valider ma réponse
       
