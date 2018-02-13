@@ -1,5 +1,5 @@
 - v = view_object(:question_view, local_assigns)
-%section
+%section.mt-3
   .container
     .row
       .col{"id" => "coleditor", "data-initial" => v.initial}
@@ -11,6 +11,6 @@
       .col
         = render 'shared/test_table', v.question
     .row.justify-content-center
-      %a.btn.btn-success.btn-lg.c-button-answer.px-5.py-4{href:v.validation_href}
+      %a.btn.btn-success.btn-lg.c-button-answer.px-5.py-4.mt-3{href:v.validation_href}
         %strong Valider ma réponse
       
