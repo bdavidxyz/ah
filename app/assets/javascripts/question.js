@@ -2,7 +2,8 @@
 $(document).on('ready turbolinks:load', function() {
   if ($('body').hasClass('question')) {
 
-    console.log('booom')
+    setTimeout(check_wisely, 1000);
+
     $('.CodeMirror').remove()
     var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
       lineNumbers: true,
