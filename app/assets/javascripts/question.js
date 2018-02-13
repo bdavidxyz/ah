@@ -11,16 +11,8 @@ $(document).on('ready turbolinks:load', function() {
       gutters: ["CodeMirror-lint-markers"],
       tabSize: 2,
       autoCloseBrackets:true,
-      lint: {
-        options: {
-          asi:true,
-          indent: 2,
-          esversion: 6,
-          undef: true,
-          eqeqeq: true,
-          node: true
-        }
-      }
+      lint: true,
+      nonEmpty: true
     })
     var editor_initial_value = $('#coleditor').attr('data-initial').replace(/\\n/g, '\n');
     editor.setValue(editor_initial_value)

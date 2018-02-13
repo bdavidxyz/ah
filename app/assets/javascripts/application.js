@@ -11,4 +11,5 @@
 //= require codemirror/lint
 //= require codemirror/eslint-lint
 //= require codemirror/closebrackets
+//= require codemirror/active-line
 //= require question
