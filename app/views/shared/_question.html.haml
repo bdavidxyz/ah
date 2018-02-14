@@ -16,6 +16,7 @@
       .row.justify-content-center
         .d-none
           = f.text_field :nb_of_lint_warning
-        %a.btn.btn-success.btn-lg.c-button-answer.px-5.py-4.mt-3{href:v.validation_href}
-          %strong Valider ma réponse
+        
+        = f.submit 'Valider ma réponse', "class" => "btn btn-success btn-lg c-button-answer px-5 py-4 mt-3", "data-turbolinks"=>"true"
+
         

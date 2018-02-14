@@ -13,8 +13,9 @@ class QuestionController < ApplicationController
     render 'question/show', locals: q.attributes.symbolize_keys
   end
 
-  def attempt_submitted
+  def submit_attempt
     params.inspect
+    redirect_to final_index_path(for_id: 'blabla')
   end
 end
 
