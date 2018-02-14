@@ -82,9 +82,19 @@ $(document).on('ready turbolinks:load', function() {
 
 
    function fill_form() {
+
      var nb_of_lint_warning = $('.CodeMirror-lint-marker-warning').length
-     $( "input[name='nb_of_lint_warning']" ).val(nb_of_lint_warning)
+     $("input[name='nb_of_lint_warning']").attr('value', nb_of_lint_warning)
+          
+     var nb_of_lint_error = $('.CodeMirror-lint-marker-error').length
+     $("input[name='nb_of_lint_error']").attr('value', nb_of_lint_error)
      
+     var nb_of_green_test = $('.trtest.green').length
+     $("input[name='nb_of_green_test']").attr('value', nb_of_green_test)
+     
+     var nb_of_red_test = $('.trtest.red').length
+     $("input[name='nb_of_red_test']").attr('value', nb_of_red_test)
+          
    }
 
 

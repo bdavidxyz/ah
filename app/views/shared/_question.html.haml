@@ -15,9 +15,10 @@
           = render 'shared/test_table', v.question
       .row.justify-content-center
         .d-none
-          = f.text_field :biz_id
+          = f.text_field :biz_id, :value => params[:for_id]
           = f.text_field :functionf
           = f.text_field :nb_of_lint_warning
+          = f.text_field :nb_of_lint_error
           = f.text_field :nb_of_green_test
           = f.text_field :nb_of_red_test
         
