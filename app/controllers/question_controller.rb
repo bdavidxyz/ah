@@ -12,5 +12,9 @@ class QuestionController < ApplicationController
     q = Question.first
     render 'question/show', locals: q.attributes.symbolize_keys
   end
+
+  def attempt_submitted
+    params.inspect
+  end
 end
 

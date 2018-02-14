@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180208141015) do
     t.integer "nb_of_lint_warning"
     t.integer "nb_of_green_test"
     t.integer "nb_of_red_test"
-    t.boolean "is_done"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,5 +5,5 @@ class Attempt < ApplicationRecord
   validates :nb_of_lint_warning, presence: true
   validates :nb_of_green_test,   presence: true
   validates :nb_of_red_test,     presence: true
-  validates :is_done,            presence: false
+  validates :status,             presence: false
 end

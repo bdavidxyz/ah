@@ -1,16 +1,21 @@
 - v = view_object(:question_view, local_assigns)
-%section.mt-3
-  .container
-    .row
-      .col{"id" => "coleditor", "data-initial" => v.initial}
-        .row.d-flex.flex-column
-          = v.description
-        .row.mt-3
-          %textarea{"id" => "editor"}
+
+= form_with url: question_attempt_path do |f|
+  
+  %section.mt-3
+    .container
+      .row
+        .col{"id" => "coleditor", "data-initial" => v.initial}
+          .row.d-flex.flex-column
+            = v.description
+          .row.mt-3
+            %textarea{"id" => "editor"}
+          
+        .col
+          = render 'shared/test_table', v.question
+      .row.justify-content-center
+        .d-none
+          = f.text_field :nb_of_lint_warning
+        %a.btn.btn-success.btn-lg.c-button-answer.px-5.py-4.mt-3{href:v.validation_href}
+          %strong Valider ma réponse
         
-      .col
-        = render 'shared/test_table', v.question
-    .row.justify-content-center
-      %a.btn.btn-success.btn-lg.c-button-answer.px-5.py-4.mt-3{href:v.validation_href}
-        %strong Valider ma réponse
-      

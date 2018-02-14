@@ -7,7 +7,7 @@ class CreateAttempts < ActiveRecord::Migration[5.1]
       t.integer     :nb_of_lint_warning
       t.integer     :nb_of_green_test
       t.integer     :nb_of_red_test
-      t.boolean     :is_done
+      t.string      :status
       
       t.timestamps
     end
