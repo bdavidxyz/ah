@@ -76,9 +76,16 @@ $(document).on('ready turbolinks:load', function() {
         }
      } 
 
+     fill_form();
+
    };
 
 
+   function fill_form() {
+     var nb_of_lint_warning = $('.CodeMirror-lint-marker-warning').length
+     $( "input[name='nb_of_lint_warning']" ).val(nb_of_lint_warning)
+     
+   }
 
 
   }
