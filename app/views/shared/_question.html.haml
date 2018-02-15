@@ -1,6 +1,6 @@
 - v = view_object(:question_view, local_assigns)
 
-= form_with url: question_attempt_path do |f|
+= form_with url: final_path, local: :true do |f|
   
   %section.mt-3
     .container
@@ -22,6 +22,6 @@
           = f.text_field :nb_of_green_test
           = f.text_field :nb_of_red_test
         
-        = f.submit "Valider ma réponse", :class => "btn btn-success btn-lg c-button-answer px-5 py-4 mt-3", "data-turbolinks"=>"true"
+        = f.submit "Valider ma réponse", :class => "btn btn-success btn-lg c-button-answer px-5 py-4 mt-3"
 
         

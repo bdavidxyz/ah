@@ -4,10 +4,11 @@ Rails.application.routes.draw do
     root to: "questions#index"
   end
 
+  match 'final' => 'final#index', via: [:get, :post]
+
   get 'question/facile', to: 'question#facile'
   get 'question/difficile', to: 'question#difficile'
-  post 'question/attempt', to: 'question#submit_attempt'
+  post 'question/attempt', to: 'question#validate_attempt'
   get 'welcome/index' 
-  get 'final/index' 
   root 'welcome#index'
 end

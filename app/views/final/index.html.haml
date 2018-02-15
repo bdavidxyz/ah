@@ -1,18 +1,1 @@
-%main{:role => "main"}
-  %section
-    .container.jumbotron.c-home-jumbotron
-      %h1.jumbotron-heading.font-weight-xbold.text-center Votre score
-      %h1.jumbotron-heading.text-center 230/1000
-      %p.lead.text-center.mt-5 Vous pouvez vous inscrire à la mailing list si vous le souhaitez. Vous aurez :
-      .d-flex.justify-content-center.mt-3
-        %ul.lead.font-weight-normal.d-inline-block
-          %li.mt-1 Une nouvelle évaluation tous les mois
-          %li.mt-1 Une répartition de l'ensemble des scores
-          %li.mt-1 Une solution possible du mois précédent
-
-      .d-flex.justify-content-center.mt-5
-        %form.d-flex.flex-column{:style => "", :action => "https://formspree.io/bdavidxyz@gmail.com", :method => "POST"}
-          %small#passwordHelpBlock.form-text.text-muted
-            Pas de spam, désinscrivez-vous quand vous voulez.
-          %input{:class=> "form-control form-control-lg", :name => "email", :type => "email", "aria-describedby" => "passwordHelpBlock"}/
-          %input.mt-1{:class=> "btn btn-primary btn-lg", :type => "submit", :value => "Je m'inscris"}/    
+= render 'shared/final_view', local_assigns
