@@ -35,10 +35,6 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-        
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
 
       # run tests!
       - run:
@@ -59,3 +55,9 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+      - deployment:
+          prod:
+            branch: master
+            heroku: 
+              appname: algohero
