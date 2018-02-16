@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180208141015) do
     t.text "functionf"
     t.integer "nb_of_second_spent"
     t.integer "nb_of_lint_warning"
+    t.integer "nb_of_lint_error"
     t.integer "nb_of_green_test"
     t.integer "nb_of_red_test"
     t.string "status"
@@ -29,6 +30,9 @@ ActiveRecord::Schema.define(version: 20180208141015) do
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
+    t.string "level"
+    t.datetime "available_at"
+    t.string "biz_id"
     t.text "description"
     t.jsonb "tests", default: "{}"
     t.text "initial"

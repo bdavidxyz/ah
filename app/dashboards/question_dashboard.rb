@@ -9,7 +9,9 @@ class QuestionDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    title: Field::String,
+    biz_id: Field::String,
+    level: Field::String,
+    available_at: Field::DateTime,
     description: Field::Ckeditor,
     tests: Field::Text,
     initial: Field::Text,
@@ -24,7 +26,9 @@ class QuestionDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :title,
+    :biz_id,
+    :level,
+    :available_at,
     :description,
     :tests,
   ].freeze
@@ -33,7 +37,9 @@ class QuestionDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :title,
+    :biz_id,
+    :level,
+    :available_at,
     :description,
     :tests,
     :initial,
@@ -45,7 +51,9 @@ class QuestionDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :title,
+    :biz_id,
+    :level,
+    :available_at,
     :description,
     :tests,
     :initial,
