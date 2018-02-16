@@ -20,7 +20,6 @@ gem "autoprefixer-rails"
 gem "haml"
 gem "administrate"
 gem "administrate-field-ckeditor", "~> 0.0.8"
-gem "rails_12factor", group: :production
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
