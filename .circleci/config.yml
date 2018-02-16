@@ -56,8 +56,8 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-      - deployment:
-          prod:
-            branch: master
-            heroku: 
-              appname: algohero
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: algohero
