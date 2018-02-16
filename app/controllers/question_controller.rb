@@ -9,7 +9,7 @@ class QuestionController < ApplicationController
   end
 
   def populate_screen(level)
-    q = Question.first
+    q = Question.last
     render 'question/show', locals: q.attributes.symbolize_keys
   end
 
