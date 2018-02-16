@@ -36,7 +36,12 @@ $(document).on('ready turbolinks:load', function() {
     function check_wisely(){
       var no_compilation_error = true;
       try {
-        window.eval(editor.getValue());
+        delete window.f;
+        // console.log("editor.getValue()");
+        // console.log(editor.getValue());
+        if (editor.getValue() !== "") {
+          window.eval(editor.getValue());
+        }
       } catch(e) {
         no_compilation_error = false
       } finally {
@@ -51,7 +56,7 @@ $(document).on('ready turbolinks:load', function() {
               evaluation = eval($("#testing" + local_index).text());
               expectation = eval($("#expecting" + local_index).text());
             } catch(e) {
-              evaluation = "**error**"
+              evaluation = "**exception**"
             } finally {
               r_target = $("#badging" + local_index)
               r_line = $("#tr" + local_index)
@@ -71,8 +76,26 @@ $(document).on('ready turbolinks:load', function() {
 
         } else if (no_compilation_error) {
           console.log('no compilation, sorry')
+          _.times($('.trtest').length, function(index){
+              var local_index  = index + 1
+              r_target = $("#badging" + local_index)
+              r_line = $("#tr" + local_index)
+              r_target.flip(true);
+              r_line.addClass("red");
+              r_line.removeClass("green");
+              $("#resulting" + local_index).text("**error**");
+          });
         } else if (!(typeof window.f === 'function')) {
           console.log('no window.f, sorry')
+          _.times($('.trtest').length, function(index){
+              var local_index  = index + 1
+              r_target = $("#badging" + local_index)
+              r_line = $("#tr" + local_index)
+              r_target.flip(true);
+              r_line.addClass("red");
+              r_line.removeClass("green");
+              $("#resulting" + local_index).text("**no f function**");
+          });
         }
      } 
 
@@ -80,6 +103,10 @@ $(document).on('ready turbolinks:load', function() {
 
    };
 
+
+   function fill_test_table(color, text) {
+
+   }
 
    function fill_form() {
 

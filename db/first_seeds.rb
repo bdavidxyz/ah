@@ -129,6 +129,10 @@ Question.create(
         "test_expectation": "false"
       },
       {
+        "test_function": "f(\"\")",
+        "test_expectation": "false"
+      },
+      {
         "test_function": "f()",
         "test_expectation": "false"
       },
