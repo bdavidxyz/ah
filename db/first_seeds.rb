@@ -80,65 +80,66 @@ function f(x) {
 
 
 Question.create(
-  biz_id: "anagram-palindrom",
+  biz_id: "anagram-start-end",
   level: "hard",
   available_at: DateTime.strptime("03/13/2018 8:00", "%m/%d/%Y %H:%M"),
   description: "
-    <p>Ecrire une&nbsp;<strong><i>fonction f</i></strong>&nbsp;qui retourne true si le&nbsp;param&egrave;tre a (au moins) un anagramme qui est un palindrome. Seule les majuscules, sans espace ni accent, sont autoris&eacute;es. Par exemple&nbsp;:</p>
+    <p>Ecrire une&nbsp;<strong><i>fonction f</i></strong>&nbsp;qui retourne le nombre d'anagrammes distincts qui commencent et terminent par la même lettre. Seule les lettres majuscules, sans espace ni accent, sont autorisées. Par exemple :</p>
       <ul>
-        <li>f(&quot;AAB&quot;) renvoie <strong>true</strong> car un anagramme de AAB est un palindrome (il s&#39;agit de &quot;ABA&quot;).</li>
-        <li>f(&quot;ABC&quot;) renvoie <strong>false</strong> car aucun anagramme de ABC n&#39;est un palindrome.</li>
-        <li>f(&quot;aab&quot;) renvoie <strong>false</strong> car seule les majuscules sont autoris&eacute;es en entr&eacute;e.</li>
+        <li>f(&quot;AAB&quot;) renvoie <strong>1</strong> (ABA) </li>
+        <li>f(&quot;TATA&quot;) renvoie <strong>2</strong> (ATTA, TAAT) </li>
+        <li>f(&quot;ABC&quot;) renvoie <strong>0</strong> </li>
+        <li>f(&quot;aab&quot;) renvoie <strong>0</strong> car seule les majuscules sont autoris&eacute;es.</li>
       </ul>",
   tests: '{
     "tests": [
       {
         "test_function": "f(\"AAB\")",
-        "test_expectation": "true"
+        "test_expectation": "1"
       },
       {
-        "test_function": "f(\"RESRESASS\")",
-        "test_expectation": "true"
+        "test_function": "f(\"TATA\")",
+        "test_expectation": "2"
       },
       {
-        "test_function": "f(\"KAYAK\")",
-        "test_expectation": "true"
+        "test_function": "f(\"TATAS\")",
+        "test_expectation": "6"
       },
       {
-        "test_function": "f(\"TGTAGA\")",
-        "test_expectation": "true"
+        "test_function": "f(\"TATASK\")",
+        "test_expectation": "24"
       },
       {
-        "test_function": "f(\"ABC\")",
-        "test_expectation": "false"
+        "test_function": "f(\"RR\")",
+        "test_expectation": "1"
       },
       {
-        "test_function": "f(\"ÂBÂ\")",
-        "test_expectation": "false"
+        "test_function": "f(\"R\")",
+        "test_expectation": "1"
       },
       {
-        "test_function": "f(\"AB BA\")",
-        "test_expectation": "false"
-      },
-      {
-        "test_function": "f(\"KAYAKE\")",
-        "test_expectation": "false"
-      },
-      {
-        "test_function": "f(\"aab\")",
-        "test_expectation": "false"
+        "test_function": "f(\"4242\")",
+        "test_expectation": "0"
       },
       {
         "test_function": "f(\"\")",
-        "test_expectation": "false"
+        "test_expectation": "0"
       },
       {
         "test_function": "f()",
-        "test_expectation": "false"
+        "test_expectation": "0"
+      },
+      {
+        "test_function": "f(\"aab\")",
+        "test_expectation": "0"
+      },
+      {
+        "test_function": "f(\"ÂAB\")",
+        "test_expectation": "0"
       },
       {
         "test_function": "f(new Date())",
-        "test_expectation": "false"
+        "test_expectation": "0"
       }
     ]
   }',
