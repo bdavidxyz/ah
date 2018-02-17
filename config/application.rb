@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 module Algohero
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w( ckeditor/* )
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.autoload_paths += Dir["#{config.root}/app/view_objects/**/"]
     config.load_defaults 5.1
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
