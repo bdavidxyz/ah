@@ -109,7 +109,7 @@ $(document).on('ready turbolinks:load', function() {
         }
      } 
 
-     fill_form();
+     fill_form(editor.getValue());
 
    };
 
@@ -118,7 +118,7 @@ $(document).on('ready turbolinks:load', function() {
 
    }
 
-   function fill_form() {
+   function fill_form(answer_val) {
 
      var nb_of_lint_warning = $('.CodeMirror-lint-marker-warning').length
      $("input[name='nb_of_lint_warning']").attr('value', nb_of_lint_warning)
@@ -131,6 +131,9 @@ $(document).on('ready turbolinks:load', function() {
      
      var nb_of_red_test = $('.trtest.red').length
      $("input[name='nb_of_red_test']").attr('value', nb_of_red_test)
+          
+     var functionf = answer_val
+     $("input[name='functionf']").attr('value', functionf)
           
    }
 
