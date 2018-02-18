@@ -118,6 +118,10 @@ Question.create(
         "test_expectation": "1"
       },
       {
+        "test_function": "f(\"ABC\")",
+        "test_expectation": "0"
+      },
+      {
         "test_function": "f(\"4242\")",
         "test_expectation": "0"
       },
