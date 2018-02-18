@@ -1,6 +1,7 @@
-
+var user_defined_stuffs = ["f"];
 $(document).on('ready turbolinks:load', function() {
   if ($('body').hasClass('question')) {
+
 
     setTimeout(check_wisely, 1000);
 
@@ -35,16 +36,25 @@ $(document).on('ready turbolinks:load', function() {
 
     function check_wisely(){
       var no_compilation_error = true;
+      var all_window_vars = _.difference(_.keys(window), user_defined_stuffs);
       try {
-        delete window.f;
-        // console.log("editor.getValue()");
-        // console.log(editor.getValue());
+        // delete window.f;
+        _.each(user_defined_stuffs, function(e) {
+          delete window[e];
+        });
         if (editor.getValue() !== "") {
           window.eval(editor.getValue());
         }
       } catch(e) {
         no_compilation_error = false
       } finally {
+        // console.log('all_window_vars')
+        // console.log(all_window_vars.length)
+        // console.log(' _.keys(window)')
+        // console.log( _.keys(window).length)
+        user_defined_stuffs = _.difference(_.keys(window), all_window_vars);
+        // console.log('user_defined_stuffs')
+        // console.log(user_defined_stuffs)
         var no_lint_error = $('.CodeMirror-lint-marker-error').length === 0
         if (no_compilation_error && (typeof window.f === 'function')) {
 
@@ -75,7 +85,7 @@ $(document).on('ready turbolinks:load', function() {
           });
 
         } else if (no_compilation_error) {
-          console.log('no compilation, sorry')
+          // console.log('no compilation, sorry')
           _.times($('.trtest').length, function(index){
               var local_index  = index + 1
               r_target = $("#badging" + local_index)
@@ -86,7 +96,7 @@ $(document).on('ready turbolinks:load', function() {
               $("#resulting" + local_index).text("**error**");
           });
         } else if (!(typeof window.f === 'function')) {
-          console.log('no window.f, sorry')
+          // console.log('no window.f, sorry')
           _.times($('.trtest').length, function(index){
               var local_index  = index + 1
               r_target = $("#badging" + local_index)
@@ -94,7 +104,7 @@ $(document).on('ready turbolinks:load', function() {
               r_target.flip(true);
               r_line.addClass("red");
               r_line.removeClass("green");
-              $("#resulting" + local_index).text("**no f function**");
+              $("#resulting" + local_index).text("**error**");
           });
         }
      } 
