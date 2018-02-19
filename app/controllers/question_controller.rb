@@ -5,11 +5,13 @@ class QuestionController < ApplicationController
   end
 
   def difficile   
-    populate_screen("difficle")
+    populate_screen("difficile")
   end
 
   def populate_screen(level)
-    q = Question.last
+    q = {}
+    q = Question.easy.most_recent[0] if level == 'facile'
+    q = Question.hard.most_recent[0] if level == 'difficile'
     render 'question/show', locals: q.attributes.symbolize_keys
   end
 
