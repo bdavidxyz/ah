@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   match 'final' => 'final#index', via: [:get, :post]
 
+  resources :question, only: [:show]
+
   get 'question/facile', to: 'question#facile'
   get 'question/difficile', to: 'question#difficile'
   post 'question/attempt', to: 'question#validate_attempt'

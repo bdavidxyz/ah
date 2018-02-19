@@ -20,5 +20,10 @@ class QuestionController < ApplicationController
     render 'final/index'
     # redirect_to final_index_path(for_id: 'blabla')
   end
+
+  def show
+    q = Question.find_by(biz_id: params[:id])
+    render locals: q.attributes.symbolize_keys
+  end
 end
 
