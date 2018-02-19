@@ -4,13 +4,9 @@ Rails.application.routes.draw do
     root to: "questions#index"
   end
 
-  match 'final' => 'final#index', via: [:get, :post]
-
   resources :question, only: [:show]
+  resources :final, only: [:create]
 
-  get 'question/facile', to: 'question#facile'
-  get 'question/difficile', to: 'question#difficile'
-  post 'question/attempt', to: 'question#validate_attempt'
   get 'welcome/index' 
   root 'welcome#index'
 end
