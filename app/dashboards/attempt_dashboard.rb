@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class QuestionDashboard < Administrate::BaseDashboard
+class AttemptDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,16 +10,16 @@ class QuestionDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     biz_id: Field::String,
-    level: Field::String,
-    available_at: Field::DateTime,
-    description: Field::Ckeditor,
-    tests: Field::Text,
-    initial: Field::Text,
-    point_max: Field::Number,
-    point_loss: Field::Number,
-    point_plateau: Field::Number,
+    functionf: Field::Text,
+    nb_of_second_spent: Field::Number,
+    nb_of_lint_warning: Field::Number,
+    nb_of_lint_error: Field::Number,
+    nb_of_green_test: Field::Number,
+    nb_of_red_test: Field::Number,
+    status: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    question: Field::BelongsTo,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,9 +29,9 @@ class QuestionDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :biz_id,
-    :point_max,
-    :available_at,
+    :created_at,
+    :question,
+    :nb_of_second_spent,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -39,16 +39,16 @@ class QuestionDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :biz_id,
-    :level,
-    :available_at,
-    :description,
-    :tests,
-    :point_max,
-    :point_loss,
-    :point_plateau,
-    :initial,
+    :functionf,
+    :nb_of_second_spent,
+    :nb_of_lint_warning,
+    :nb_of_lint_error,
+    :nb_of_green_test,
+    :nb_of_red_test,
+    :status,
     :created_at,
     :updated_at,
+    :question,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -56,20 +56,20 @@ class QuestionDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :biz_id,
-    :level,
-    :available_at,
-    :description,
-    :tests,
-    :point_max,
-    :point_loss,
-    :point_plateau,
-    :initial,
+    :functionf,
+    :nb_of_second_spent,
+    :nb_of_lint_warning,
+    :nb_of_lint_error,
+    :nb_of_green_test,
+    :nb_of_red_test,
+    :status,
+    :question,
   ].freeze
 
-  # Overwrite this method to customize how questions are displayed
+  # Overwrite this method to customize how attempts are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(question)
-    "#{question.biz_id}"
-  end
+  # def display_resource(attempt)
+  #   "Attempt ##{attempt.id}"
+  # end
 end

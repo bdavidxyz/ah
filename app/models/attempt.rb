@@ -8,6 +8,8 @@ class Attempt < ApplicationRecord
   validates :nb_of_red_test,     presence: false
   validates :status,             presence: false
 
+  belongs_to :question, optional: false
+
   def self.update_or_create_by(args, attributes)
     obj = self.find_or_create_by(args)
     obj.update(attributes)
