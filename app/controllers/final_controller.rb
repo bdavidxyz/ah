@@ -1,13 +1,20 @@
 class FinalController < ApplicationController
 
   def create
-    attempt = Attempt.find_by!(biz_id: attempt_params[:biz_id])
+    biz_id = attempt_params[:biz_id]
+    attempt = Attempt.find_by!(biz_id: biz_id)
     question = attempt.question
     attempt.update(attempt_params)
     service = ScoreService.new(attempt, question)
     service.update_status!
     service.update_score!
     attempt.update(attempt_params)
+    redirect_to final_index_path(for_id: biz_id)
+  end
+
+  def index
+    attempt = Attempt.find_by!(biz_id: params[:for_id])
+    render locals: {score: attempt.score}
   end
 
   private
