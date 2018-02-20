@@ -4,9 +4,9 @@ class QuestionView < ViewObject
 
   def after_init(args)
     locals = hash_for(args)
+    @functionf  = string_for(locals[:functionf])
     @question  = hash_for(locals[:question])
     @initial  = string_for(question[:initial])
-    @functionf  = string_for(question[:functionf])
     @description  = string_for(question[:description]).html_safe
   end
 
