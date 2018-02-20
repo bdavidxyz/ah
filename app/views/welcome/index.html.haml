@@ -5,10 +5,11 @@
       .d-flex.justify-content-center.mt-5
         %ul.lead.font-weight-normal.d-inline-block
           %li.mt-1 Vous pouvez utiliser Internet
-          %li.mt-1 Vous devez coder en Javascript
-          %li.mt-1 Vous pouvez coder en ES6 
+          %li.mt-1 Vous devez coder en JavaScript
+          %li.mt-1#es6 Vous pouvez coder en ES6 
           %li.mt-1 Lodash et jQuery sont déjà chargés 
-          %li.mt-1 Vous êtes noté au temps passé
       %p.text-center.mt-5
         %a.btn.btn-primary.btn-lg.mt-1{:href => "#{path_of_easy_question}?for_id=#{SecureRandom.uuid}"} Houlà, test facile
         %a.btn.btn-dark.btn-lg.mt-1{:href => "#{path_of_hard_question}?for_id=#{SecureRandom.uuid}"} Ok, test difficile
+
+= javascript_tag "function isES6() { try { Function(\"() => {};\"); return true; } catch(exception) { return false; } }; if (!isES6()){$('#es6').hide();}"

@@ -2,13 +2,7 @@ class FinalController < ApplicationController
 
   def create
     attempt = Attempt.find_by!(biz_id: attempt_params[:biz_id])
-    p '- - - - - - - - - - - - - - attempt- - - - - - - - - - - - - - - -' 
-    p attempt.inspect
-    p ''
     question = attempt.question
-    p '- - - - - - - - - - - - - - question- - - - - - - - - - - - - - - -' 
-    p question.inspect
-    p ''
     attempt.update(attempt_params)
     service = ScoreService.new(attempt, question)
     service.update_status!
