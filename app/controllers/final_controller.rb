@@ -13,6 +13,7 @@ class FinalController < ApplicationController
     service = ScoreService.new(attempt, question)
     service.update_status!
     service.update_score!
+    attempt.update(attempt_params)
   end
 
   private
