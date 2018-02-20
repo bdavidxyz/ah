@@ -17,6 +17,7 @@ class AttemptDashboard < Administrate::BaseDashboard
     nb_of_green_test: Field::Number,
     nb_of_red_test: Field::Number,
     status: Field::String,
+    score: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     question: Field::BelongsTo,
@@ -30,6 +31,7 @@ class AttemptDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :created_at,
+    :score,
     :question,
     :nb_of_second_spent,
   ].freeze
@@ -45,6 +47,7 @@ class AttemptDashboard < Administrate::BaseDashboard
     :nb_of_lint_error,
     :nb_of_green_test,
     :nb_of_red_test,
+    :score,
     :status,
     :created_at,
     :updated_at,
@@ -62,6 +65,7 @@ class AttemptDashboard < Administrate::BaseDashboard
     :nb_of_lint_error,
     :nb_of_green_test,
     :nb_of_red_test,
+    :score,
     :status,
     :question,
   ].freeze
