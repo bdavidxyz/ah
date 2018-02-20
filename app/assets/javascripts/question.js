@@ -3,7 +3,7 @@ $(document).on('ready turbolinks:load', function() {
   if ($('body').hasClass('question')) {
 
 
-    setTimeout(check_wisely, 1000);
+    setTimeout(check_wisely, 100);
 
     $('.CodeMirror').remove()
     var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
