@@ -16,7 +16,11 @@ $(document).on('ready turbolinks:load', function() {
       lint: true,
       nonEmpty: true
     })
+    var functionf = $('#coleditor').attr('data-functionf')
     var editor_initial_value = $('#coleditor').attr('data-initial').replace(/\\n/g, '\n');
+    if (functionf) {
+      editor_initial_value = functionf.replace(/\\n/g, '\n');
+    }
     editor.setValue(editor_initial_value)
     editor.focus()
     editor.setCursor({line: 4, ch: 3})
@@ -48,13 +52,7 @@ $(document).on('ready turbolinks:load', function() {
       } catch(e) {
         no_compilation_error = false
       } finally {
-        // console.log('all_window_vars')
-        // console.log(all_window_vars.length)
-        // console.log(' _.keys(window)')
-        // console.log( _.keys(window).length)
         user_defined_stuffs = _.difference(_.keys(window), all_window_vars);
-        // console.log('user_defined_stuffs')
-        // console.log(user_defined_stuffs)
         var no_lint_error = $('.CodeMirror-lint-marker-error').length === 0
         if (no_compilation_error && (typeof window.f === 'function')) {
 
@@ -85,7 +83,6 @@ $(document).on('ready turbolinks:load', function() {
           });
 
         } else if (no_compilation_error) {
-          // console.log('no compilation, sorry')
           _.times($('.trtest').length, function(index){
               var local_index  = index + 1
               r_target = $("#badging" + local_index)
@@ -96,7 +93,6 @@ $(document).on('ready turbolinks:load', function() {
               $("#resulting" + local_index).text("**error**");
           });
         } else if (!(typeof window.f === 'function')) {
-          // console.log('no window.f, sorry')
           _.times($('.trtest').length, function(index){
               var local_index  = index + 1
               r_target = $("#badging" + local_index)
@@ -132,7 +128,8 @@ $(document).on('ready turbolinks:load', function() {
      var nb_of_red_test = $('.trtest.red').length
      $("input[name='nb_of_red_test']").attr('value', nb_of_red_test)
           
-     var functionf = answer_val
+     var functionf = answer_val.replace(/\n/g, '\\n')
+     console.log(functionf)
      $("input[name='functionf']").attr('value', functionf)
           
    }
