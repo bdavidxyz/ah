@@ -10,7 +10,7 @@ class CreateQuestions < ActiveRecord::Migration[5.1]
       t.text :initial
 
       t.integer  :point_max
-      t.integer  :point_loss_per_second
+      t.integer  :point_loss
       t.integer  :point_plateau
 
       t.timestamps

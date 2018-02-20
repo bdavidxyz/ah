@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180220105232) do
     t.jsonb "tests", default: "{}"
     t.text "initial"
     t.integer "point_max"
-    t.integer "point_loss_per_second"
+    t.integer "point_loss"
     t.integer "point_plateau"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

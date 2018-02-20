@@ -15,6 +15,9 @@ class QuestionDashboard < Administrate::BaseDashboard
     description: Field::Ckeditor,
     tests: Field::Text,
     initial: Field::Text,
+    point_max: Field::Number,
+    point_loss: Field::Number,
+    point_plateau: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -27,10 +30,8 @@ class QuestionDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :biz_id,
-    :level,
+    :point_max,
     :available_at,
-    :description,
-    :tests,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -42,6 +43,9 @@ class QuestionDashboard < Administrate::BaseDashboard
     :available_at,
     :description,
     :tests,
+    :point_max,
+    :point_loss,
+    :point_plateau,
     :initial,
     :created_at,
     :updated_at,
@@ -56,6 +60,9 @@ class QuestionDashboard < Administrate::BaseDashboard
     :available_at,
     :description,
     :tests,
+    :point_max,
+    :point_loss,
+    :point_plateau,
     :initial,
   ].freeze
 
