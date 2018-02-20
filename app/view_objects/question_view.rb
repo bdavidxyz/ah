@@ -1,10 +1,11 @@
 class QuestionView < ViewObject
 
-  attr_reader :question, :initial, :functionf, :description
+  attr_reader :functionf, :done, :question, :initial, :description
 
   def after_init(args)
     locals = hash_for(args)
     @functionf  = string_for(locals[:functionf])
+    @done  = boolean_for(locals[:done])
     @question  = hash_for(locals[:question])
     @initial  = string_for(question[:initial])
     @description  = string_for(question[:description]).html_safe

@@ -1,7 +1,7 @@
 - v = view_object(:question_view, local_assigns)
 
 = form_with url: final_index_path, local: :true do |f|
-  
+
   %section.mt-3
     .container
       .row
@@ -13,15 +13,19 @@
           
         .col
           = render 'shared/test_table', v.question
-      .row.justify-content-center
-        .d-none
-          = f.text_field :biz_id, :value => params[:for_id]
-          = f.text_field :functionf
-          = f.text_field :nb_of_lint_warning
-          = f.text_field :nb_of_lint_error
-          = f.text_field :nb_of_green_test
-          = f.text_field :nb_of_red_test
-        
-        = f.submit "Valider ma réponse", :class => "btn btn-success btn-lg c-button-answer px-5 py-4 mt-5"
+ 
+      - if !v.done
+        .row.justify-content-center
+          .d-none
+            = f.text_field :biz_id, :value => params[:for_id]
+            = f.text_field :functionf
+            = f.text_field :nb_of_lint_warning
+            = f.text_field :nb_of_lint_error
+            = f.text_field :nb_of_green_test
+            = f.text_field :nb_of_red_test
+          
+          = f.submit "Valider ma réponse", :class => "btn btn-success btn-lg c-button-answer px-5 py-4 mt-5"
 
-        
+      - if v.done
+        .row.justify-content-center
+          Test terminé
