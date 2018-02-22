@@ -32,8 +32,12 @@ group :development, :test do
   gem "rb-fsevent", require: false
   gem "database_cleaner"
   gem "rspec-rails"
-  gem "factory_bot_rails", "~> 4.0"
 end
+
+group :test do
+  gem 'factory_bot_rails', '~> 4.0'
+end
+
 
 group :development do
   gem "web-console", ">= 3.3.0"

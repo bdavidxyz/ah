@@ -5,8 +5,8 @@ RSpec.feature "Welcome page", :type => :feature do
     create(:question, :easy)    
     create(:question, :hard)    
   end
-  scenario "User is on the welcome page by default" do
+  scenario "Land on home page by default" do
     visit root_path
-    expect(page).to have_css("c-home-jumbotron")
+    expect(page).to have_css(".c-home-jumbotron")
   end
 end
