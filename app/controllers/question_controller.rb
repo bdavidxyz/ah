@@ -8,9 +8,6 @@ class QuestionController < ApplicationController
     h_view[:question] = q.attributes.symbolize_keys
     h_view[:functionf] = att.functionf
     h_view[:done] = att.status == "done"
-    p '- - - - - - - - - - - - - - h_view- - - - - - - - - - - - - - - -' 
-    p h_view.inspect
-    p ''
     render locals: h_view
   end
 

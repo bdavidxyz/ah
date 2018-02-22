@@ -1,12 +1,13 @@
 var user_defined_stuffs = ["f"];
 $(document).on('ready turbolinks:load', function() {
-  if ($('body').hasClass('question')) {
+  if ($('body').hasClass('question') && $('#coleditor').length) {
 
+    console.log('boomquestionjs')
+    var functionf = $('#coleditor').attr('data-functionf');
 
     setTimeout(check_wisely, 100);
 
-    $('.CodeMirror').remove()
-    var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+    var options = {
       lineNumbers: true,
       mode: "javascript",
       theme: "xq-light",
@@ -15,8 +16,14 @@ $(document).on('ready turbolinks:load', function() {
       autoCloseBrackets:true,
       lint: true,
       nonEmpty: true
-    })
-    var functionf = $('#coleditor').attr('data-functionf')
+    };
+
+    if (functionf) {
+      options.readOnly = 'nocursor'
+    }
+
+    $('.CodeMirror').remove()
+    var editor = CodeMirror.fromTextArea(document.getElementById("editor"), options)
     var editor_initial_value = $('#coleditor').attr('data-initial').replace(/\\n/g, '\n');
     if (functionf) {
       editor_initial_value = functionf.replace(/\\n/g, '\n');
@@ -129,7 +136,6 @@ $(document).on('ready turbolinks:load', function() {
      $("input[name='nb_of_red_test']").attr('value', nb_of_red_test)
           
      var functionf = answer_val.replace(/\n/g, '\\n')
-     console.log(functionf)
      $("input[name='functionf']").attr('value', functionf)
           
    }

@@ -2,6 +2,7 @@
 //= require turbolinks
 //= require lodash/lodash
 //= require jquery/jquery
+//= require jquery/jquery_extension
 //= require jquery/jquery.flip
 //= require popper/popper
 //= require bootstrap/bootstrap

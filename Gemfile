@@ -31,6 +31,8 @@ group :development, :test do
   gem "guard-livereload", require: false
   gem "rack-livereload"
   gem "rb-fsevent", require: false
+  gem "database_cleaner"
+  gem "rspec-rails"
 end
 
 group :development do

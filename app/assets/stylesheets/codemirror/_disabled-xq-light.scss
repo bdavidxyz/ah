@@ -1,0 +1,48 @@
+/*
+Copyright (C) 2011 by MarkLogic Corporation
+Author: Mike Brevoort <mike@brevoort.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+.disabled-editor {
+  .cm-s-xq-light span.cm-keyword { line-height: 1em; font-weight: bold; color: grey; }
+  .cm-s-xq-light span.cm-atom { color: grey; }
+  .cm-s-xq-light span.cm-number { color: grey; }
+  .cm-s-xq-light span.cm-def { text-decoration:underline; }
+  .cm-s-xq-light span.cm-variable { color: black; }
+  .cm-s-xq-light span.cm-variable-2 { color:black; }
+  .cm-s-xq-light span.cm-variable-3, .cm-s-xq-light span.cm-type { color: black; }
+  .cm-s-xq-light span.cm-property {}
+  .cm-s-xq-light span.cm-operator {}
+  .cm-s-xq-light span.cm-comment { color: grey; font-style: italic; }
+  .cm-s-xq-light span.cm-string { color: grey; }
+  .cm-s-xq-light span.cm-meta { color: grey; }
+  .cm-s-xq-light span.cm-qualifier { color: grey; }
+  .cm-s-xq-light span.cm-builtin { color: grey; }
+  .cm-s-xq-light span.cm-bracket { color: grey; }
+  .cm-s-xq-light span.cm-tag { color: grey; }
+  .cm-s-xq-light span.cm-attribute { color: grey; }
+  .cm-s-xq-light span.cm-error { color: grey; }
+
+  .cm-s-xq-light .CodeMirror-activeline-background { background: grey; }
+  .cm-s-xq-light .CodeMirror-matchingbracket { outline:1px solid grey;color:black !important;background:yellow; }  
+  .CodeMirror-gutters {
+    background-color: white;
+  }
+}

@@ -8,12 +8,15 @@
         .col{"id" => "coleditor", "data-initial" => v.initial,  "data-functionf" => v.functionf}
           .row.d-flex.flex-column
             = v.description
-          .row.mt-3
+          .row.mt-3{"class" => "#{v.done ? 'disabled-editor' : 'enabled-editor'}"}
             %textarea{"id" => "editor"}
+          
           
         .col
           = render 'shared/test_table', v.question
- 
+        
+
+
       - if !v.done
         .row.justify-content-center
           .d-none
@@ -27,5 +30,5 @@
           = f.submit "Valider ma réponse", :class => "btn btn-success btn-lg c-button-answer px-5 py-4 mt-5"
 
       - if v.done
-        .row.justify-content-center
-          Test terminé
+        .row.justify-content-center.h2.mt-3
+          %strong Test terminé
