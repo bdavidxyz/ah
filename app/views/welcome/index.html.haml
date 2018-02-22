@@ -9,7 +9,7 @@
           %li.mt-1#es6 Vous pouvez coder en ES6 
           %li.mt-1 Lodash et jQuery sont déjà chargés 
       %p.text-center.mt-5
-        %a.btn.btn-primary.btn-lg.mt-1{:href => "#{path_of_easy_question}?for_id=#{SecureRandom.uuid}"} Houlà, test facile
-        %a.btn.btn-dark.btn-lg.mt-1{:href => "#{path_of_hard_question}?for_id=#{SecureRandom.uuid}"} Ok, test difficile
+        %a.btn.btn-primary.btn-lg.mt-1.qa-easy{:href => "#{path_of_easy_question}?for_id=#{SecureRandom.uuid}"} Houlà, test facile
+        %a.btn.btn-dark.btn-lg.mt-1.qa-hard{:href => "#{path_of_hard_question}?for_id=#{SecureRandom.uuid}"} Ok, test difficile
 
 = javascript_tag "function isES6() { try { Function(\"() => {};\"); return true; } catch(exception) { return false; } }; if (!isES6()){$('#es6').hide();}"
