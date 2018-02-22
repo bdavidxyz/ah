@@ -19,6 +19,7 @@ private
     h_view = {}
     h_view[:question] = question.attributes.symbolize_keys
     h_view[:functionf] = attempt.functionf
+    h_view[:tests] = question.tests
     h_view[:done] = attempt.status == "done"
     h_view
   end

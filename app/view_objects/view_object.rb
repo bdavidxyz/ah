@@ -26,7 +26,7 @@ class ViewObject
     hash_for(tmp)
   end
   def array_of_hash_for(arg)
-    arg.is_a?(Array) && arg.all?{|e| e.is_a?(Hash)} ? arg.map{|e| e.symbolize_keys} : []
+    arg.is_a?(Array) && arg.all?{|e| e.is_a?(Hash)} ? arg.map{|e| e.deep_symbolize_keys} : []
   end
   def boolean_for(arg)
     arg.is_a?(FalseClass) || arg.is_a?(TrueClass) ? arg : false
