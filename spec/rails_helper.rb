@@ -1,3 +1,4 @@
+require "support/factory_bot"
 require "capybara/rspec"
 
 ENV["RAILS_ENV"] ||= "test"
