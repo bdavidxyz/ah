@@ -24,21 +24,26 @@ RSpec.feature "Question page", :type => :feature do
     end    
   end
 
+
   context 'Existing attempt' do
-    before(:each) do
-      question = create(:question, :easy)    
-      attempt = create(:attempt, question: question, status: "done", biz_id: fresh_and_new_attempt_id)    
-      visit question_path(question.biz_id, for_id: attempt.biz_id)
+    cached_page = nil
+    before do
+      if !cached_page
+        question = create(:question, :easy)    
+        attempt = create(:attempt, question: question, status: "done", biz_id: fresh_and_new_attempt_id)    
+        visit question_path(question.biz_id, for_id: attempt.biz_id)
+        cached_page = Nokogiri::HTML(page.html)
+      end
     end
     scenario "Do not display validation button" do
-      expect(page).not_to have_css(".qa-validate")
-    end    
+      expect(cached_page.css('.qa-validate').size).to eq(0)
+    end
     scenario "Do not display form fields" do
-      expect(page).not_to have_css(".qa-form-fields")
-    end    
+      expect(cached_page.css('.qa-form-fields').size).to eq(0)
+    end
     scenario "Display info that test is done" do
-      expect(page).to have_css(".qa-info-done")
-    end        
+      expect(cached_page.css('.qa-info-done').size).to eq(1)
+    end
   end
 
   private 
