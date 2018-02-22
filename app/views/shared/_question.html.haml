@@ -19,7 +19,7 @@
 
       - if !v.done
         .row.justify-content-center
-          .d-none
+          .d-none.qa-form-fields
             = f.text_field :biz_id, :value => params[:for_id]
             = f.text_field :functionf
             = f.text_field :nb_of_lint_warning
@@ -27,7 +27,7 @@
             = f.text_field :nb_of_green_test
             = f.text_field :nb_of_red_test
           
-          = f.submit "Valider ma réponse", :class => "btn btn-success btn-lg c-button-answer px-5 py-4 mt-5"
+          = f.submit "Valider ma réponse", :class => "qa-validate btn btn-success btn-lg c-button-answer px-5 py-4 mt-5"
 
       - if v.done
         .row.justify-content-center.h2.mt-3

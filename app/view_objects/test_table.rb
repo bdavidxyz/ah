@@ -2,8 +2,9 @@ class TestTable < ViewObject
 
   def after_init(args)
     locals = hash_for(args)
-    json_tests = JSON.parse(locals[:tests]) rescue {}
-    all_tests = json_tests["tests"]
+    temp_tests = JSON.parse(locals[:tests]) rescue {}
+    json_tests = json_for(locals[:tests])
+    all_tests = json_tests[:tests]
     @tests = array_of_hash_for(all_tests)
   end
 

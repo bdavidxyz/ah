@@ -1,5 +1,8 @@
 FactoryBot.define do
 
+
+  factory :attempt
+
   factory :question do 
   
     trait :easy do 
