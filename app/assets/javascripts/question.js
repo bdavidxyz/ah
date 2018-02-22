@@ -2,7 +2,6 @@ var user_defined_stuffs = ["f"];
 $(document).on('ready turbolinks:load', function() {
   if ($('body').hasClass('question') && $('#coleditor').length) {
 
-    console.log('boomquestionjs')
     var functionf = $('#coleditor').attr('data-functionf');
 
     setTimeout(check_wisely, 100);
