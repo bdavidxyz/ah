@@ -61,10 +61,6 @@ RSpec.feature "Question page", :type => :feature do
 
   private 
 
-  def should_have(seen, size, selector)
-    expect(seen.css(selector).size).to eq(size)
-  end
-
   def fresh_and_new_attempt_id
     SecureRandom.uuid
   end

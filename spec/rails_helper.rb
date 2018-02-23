@@ -12,6 +12,9 @@ require "capybara/rspec"
 # Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
+def should_have(seen, size, selector)
+  expect(seen.css(selector).size).to eq(size)
+end
 
 RSpec.configure do |config|
 
