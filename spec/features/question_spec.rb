@@ -11,6 +11,9 @@ RSpec.feature "Question page", :type => :feature do
         that = Nokogiri::HTML(page.html)
       end
     end
+    scenario "Display an enabled editor" do
+      expect(that.css('.enabled-editor').size).to eq(1)
+    end    
     scenario "Display code editor" do
       expect(that.css('#editor').size).to eq(1)
     end    
@@ -39,6 +42,9 @@ RSpec.feature "Question page", :type => :feature do
         that = Nokogiri::HTML(page.html)
       end
     end
+    scenario "Display an disabled editor" do
+      expect(that.css('.disabled-editor').size).to eq(1)
+    end    
     scenario "Do not display validation button" do
       expect(that.css('.qa-validate').size).to eq(0)
     end
@@ -48,9 +54,17 @@ RSpec.feature "Question page", :type => :feature do
     scenario "Display info that test is done" do
       expect(that.css('.qa-info-done').size).to eq(1)
     end
+    scenario "Display test table" do
+      # expect(that.css('.c-table').size).to eq(1)
+      should_have(that, '.c-table', 1)
+    end    
   end
 
   private 
+
+  def should_have(that, selector, size)
+    expect(that.css(selector).size).to eq(size)
+  end
 
   def fresh_and_new_attempt_id
     SecureRandom.uuid
