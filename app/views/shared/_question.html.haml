@@ -1,13 +1,13 @@
 - v = view_object(:question_view, local_assigns)
 = form_with url: final_index_path, local: :true do |f|
 
-  %section.mt-3
+  %section.mt-3{"class" => "#{v.done ? 'disabled-editor' : 'enabled-editor'}"}
     .container
       .row
         .col{"id" => "coleditor", "data-initial" => v.initial,  "data-functionf" => v.functionf}
           .row.d-flex.flex-column
             = v.description
-          .row.mt-3{"class" => "#{v.done ? 'disabled-editor' : 'enabled-editor'}"}
+          .row.mt-3
             %textarea{"id" => "editor"}
           
           

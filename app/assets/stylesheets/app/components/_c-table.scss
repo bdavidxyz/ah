@@ -12,6 +12,22 @@ table.c-table {
   background-color: #00ff0021;
 }
 
+.disabled-editor .trtest.green {
+  background-color: white;
+}
+
 .trtest.red {
   background-color: #ff000012;
+}
+
+.disabled-editor .trtest.red {
+  background-color: lightgrey;
+}
+
+.disabled-editor .badge-success {
+  background-color: black;
+}
+
+.disabled-editor .badge-danger {
+  background-color: black;
 }
