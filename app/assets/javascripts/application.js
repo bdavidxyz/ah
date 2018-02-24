@@ -14,3 +14,4 @@
 //= require codemirror/closebrackets
 //= require codemirror/active-line
 //= require question
+//= require final

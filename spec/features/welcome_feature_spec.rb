@@ -1,11 +1,6 @@
 require "rails_helper"
 
 RSpec.feature "Welcome page", :type => :feature do
-  # before(:each) do
-  #   create(:question, :easy)    
-  #   create(:question, :hard)    
-  #   visit root_path
-  # end
   context 'Nominal' do
     seen = nil
     before do
