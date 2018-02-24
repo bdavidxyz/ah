@@ -14,3 +14,7 @@ $.fn.hasAllClasses = function() {
   }
   return result;
 }
+
+$.fn.replaceClass = function (pFromClass, pToClass) {
+  return this.removeClass(pFromClass).addClass(pToClass);
+}
