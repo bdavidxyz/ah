@@ -5,11 +5,7 @@ class ScoreService
     @question = question
   end
 
-  def update_status!
-    @attempt.status = @attempt.updated_at ? "done" : "wip"
-  end
-
-  def update_score!
+  def score
     score = 0
     tenth = @question.point_max / 10
     start_time = @attempt.created_at
@@ -24,7 +20,6 @@ class ScoreService
       score = @question.point_max - loss
     end
 
-
     score = 0 if @attempt.nb_of_red_test > 1
     
     score = score - (1 * tenth * @attempt.nb_of_lint_warning)
@@ -35,6 +30,6 @@ class ScoreService
     score = 0 if (score < 0)
     score = 2 if (@attempt.nb_of_red_test == 0 && score == 0)
 
-    @attempt.score = "#{score}/#{@question.point_max}"
+    "#{score}/#{@question.point_max}"
   end
 end

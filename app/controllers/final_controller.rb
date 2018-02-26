@@ -5,10 +5,12 @@ class FinalController < ApplicationController
     question = attempt.question
     attempt_form = fill_attempt_form(attempt, question)
     if attempt_form.valid?
-      update_attempt(attempt_form, attempt)
-      service = ScoreService.new(attempt, question)
-      service.update_status!
-      service.update_score!
+      score_service = ScoreService.new(attempt, question)
+      attempt_service = AttemptService.new(attempt)
+      attempt_service.update_from_form(attempt_form)
+      attempt_service.update_score(score_service.score)
+      attempt_service.update_status
+      attempt.save!
       redirect_to final_index_path(for_id: attempt_biz_id)
     else
       flash[:error] = attempt_form.errors.messages.values.flatten
@@ -26,19 +28,6 @@ class FinalController < ApplicationController
 
   def attempt_biz_id
     params[:biz_id]
-  end
-
-  def update_attempt(attempt_form, attempt)
-    attempt.update!(
-      biz_id: attempt_form.biz_id, 
-      functionf: attempt_form.functionf, 
-      nb_of_lint_warning: attempt_form.nb_of_lint_warning, 
-      nb_of_lint_error: attempt_form.nb_of_lint_error,
-      nb_of_green_test: attempt_form.nb_of_green_test,
-      nb_of_red_test: attempt_form.nb_of_red_test,
-      nb_of_second_spent: attempt_form.nb_of_second_spent
-      )
-
   end
 
   def fill_attempt_form(attempt, question)

@@ -22,13 +22,13 @@ class AttemptForm < ActiveType::Object
 
   def cannot_have_unchanged_functionf
     if stripped(initial_functionf) == stripped(functionf) 
-      errors.add(:cannot_have_filled_honeypot, 'Erreur : vous devez essayer de remplir la fonction f')
+      errors.add(:cannot_have_unchanged_functionf, 'Erreur : vous devez essayer de remplir la fonction f')
     end 
   end
 
   def cannot_spend_less_than_5_seconds
     if nb_of_second_spent <= 5
-      errors.add(:cannot_spend_less_than_5_seconds, 'Vous devez passer au moins 5 secondes sur ce test')
+      errors.add(:cannot_spend_less_than_5_seconds, 'Vous devez chercher un peu avant de valider le test')
     end 
   end
 
