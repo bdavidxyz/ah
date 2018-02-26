@@ -2,10 +2,10 @@ class FinalController < ApplicationController
 
   def create
     attempt = Attempt.find_by!(biz_id: attempt_biz_id)
-    attempt_form = fill_attempt_form(attempt)
+    question = attempt.question
+    attempt_form = fill_attempt_form(attempt, question)
     if attempt_form.valid?
       update_attempt(attempt_form, attempt)
-      question = attempt.question
       service = ScoreService.new(attempt, question)
       service.update_status!
       service.update_score!
@@ -41,14 +41,13 @@ class FinalController < ApplicationController
 
   end
 
-  def fill_attempt_form(attempt)
+  def fill_attempt_form(attempt, question)
     attempt_form = AttemptForm.new(attempt_params)
+    attempt_form.initial_functionf = question.initial
     attempt_form.nb_of_second_spent = Time.now.to_i - attempt.created_at.to_i
     p '- - - - - - - - - - - - - - attempt_form- - - - - - - - - - - - - - - -' 
-    # p attempt_form.inspect
-    # p attempt_form.functionf == attempt.question.initial
-    p attempt_form.valid?
-    p attempt_form.errors.messages.inspect
+    p attempt_form.functionf.gsub("\\n", "").gsub("\n", "").gsub("\r", "").gsub("\\r", "")
+    p attempt.question.initial.gsub("\\n", "").gsub("\n", "").gsub("\r", "").gsub("\\r", "")
     p '*************'
     attempt_form
   end

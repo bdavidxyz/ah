@@ -2,6 +2,7 @@ class AttemptForm < ActiveType::Object
 
   attribute :biz_id, :string
   attribute :honeypot, :string
+  attribute :initial_functionf, :string
   attribute :functionf, :string
   attribute :nb_of_lint_warning, :integer
   attribute :nb_of_lint_error, :integer
@@ -11,10 +12,17 @@ class AttemptForm < ActiveType::Object
 
   validate :cannot_have_filled_honeypot
   validate :cannot_spend_less_than_5_seconds
+  validate :cannot_have_unchanged_functionf
 
   def cannot_have_filled_honeypot
     if honeypot.present?
       errors.add(:cannot_have_filled_honeypot, 'Erreur inconnue')
+    end 
+  end
+
+  def cannot_have_unchanged_functionf
+    if stripped(initial_functionf) == stripped(functionf) 
+      errors.add(:cannot_have_filled_honeypot, 'Erreur : vous devez essayer de remplir la fonction f')
     end 
   end
 
@@ -24,6 +32,10 @@ class AttemptForm < ActiveType::Object
     end 
   end
 
+private
+  def stripped(str)
+    str.gsub("\\n", "").gsub("\n", "").gsub("\r", "").gsub("\\r", "")
+  end
 
 
 end
