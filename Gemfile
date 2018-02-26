@@ -21,6 +21,8 @@ gem "haml"
 gem "administrate"
 gem "administrate-field-ckeditor", "~> 0.0.8"
 gem "rack-timeout"
+gem "active_type"
+
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

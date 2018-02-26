@@ -14,7 +14,7 @@ class ScoreService
     tenth = @question.point_max / 10
     start_time = @attempt.created_at
     end_time = @attempt.updated_at
-    time_spent = end_time.to_f - start_time.to_f
+    time_spent = @attempt.nb_of_second_spent
 
     if (time_spent <= @question.point_plateau)
       score = @question.point_max
@@ -36,6 +36,5 @@ class ScoreService
     score = 2 if (@attempt.nb_of_red_test == 0 && score == 0)
 
     @attempt.score = "#{score}/#{@question.point_max}"
-    @attempt.nb_of_second_spent = time_spent
   end
 end

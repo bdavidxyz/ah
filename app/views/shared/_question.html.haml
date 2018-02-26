@@ -24,7 +24,10 @@
             = f.text_field :nb_of_lint_error
             = f.text_field :nb_of_green_test
             = f.text_field :nb_of_red_test
+            = f.text_field :honeypot
           
+          - if !(flash[:error].blank?)
+            = flash[:error][0]
           = f.submit "Valider ma réponse", :class => "qa-validate btn btn-success btn-lg c-button-answer px-5 py-4 mt-5"
 
       - if v.done
