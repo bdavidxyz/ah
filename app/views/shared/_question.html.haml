@@ -17,18 +17,23 @@
 
       - if !v.done
         .row.justify-content-center
-          .qa-form-fields.d-none
-            = f.text_field :biz_id, :value => params[:for_id]
-            = f.text_field :functionf
-            = f.text_field :nb_of_lint_warning
-            = f.text_field :nb_of_lint_error
-            = f.text_field :nb_of_green_test
-            = f.text_field :nb_of_red_test
-            = f.text_field :honeypot
-          
-          - if !(flash[:error].blank?)
-            = flash[:error][0]
-          = f.submit "Valider ma réponse", :class => "qa-validate btn btn-success btn-lg c-button-answer px-5 py-4 mt-5"
+          .d-flex.flex-column      
+            .qa-form-fields.d-none
+              = f.text_field :biz_id, :value => params[:for_id]
+              = f.text_field :functionf
+              = f.text_field :nb_of_lint_warning
+              = f.text_field :nb_of_lint_error
+              = f.text_field :nb_of_green_test
+              = f.text_field :nb_of_red_test
+              = f.text_field :honeypot
+            
+            .c-error.mt-5
+              - if !(flash[:error].blank?)
+                .c-error-content
+                  %span &#x2716;
+                  %span= flash[:error][0]
+            .qa-align-button
+              = f.submit "Valider ma réponse", :class => "qa-validate btn btn-success btn-lg c-button-answer px-5 py-4"
 
       - if v.done
         .qa-info-done.row.justify-content-center.h2.mt-3
