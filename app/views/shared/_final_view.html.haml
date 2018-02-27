@@ -12,9 +12,12 @@
           %li.mt-1 Une nouvelle évaluation tous les mois
 
       .d-flex.justify-content-center.mt-5
-        %form#contact-form.d-flex.flex-column{:style => "", :action => "https://formspree.io/bdavidxyz@gmail.com", :method => "POST"}
-          %small#passwordHelpBlock.form-text.text-muted
-            Pas de spam, désinscrivez-vous quand vous voulez.
-          %input{:class=> "form-control form-control-lg load-email-enter", :name => "email", :type => "email", "aria-describedby" => "passwordHelpBlock"}/
-          %input{:class=> "d-none load-email-enter-fake", :name => "honeypot", :type => "email"}/
-          %input.mt-1{:class=> "btn btn-primary btn-lg load-email-button", :type => "submit", :value => "Je m'inscris"}/    
+        %form#subscribe-form{action: "https://github.us11.list-manage.com/subscribe/post-json?u=f19661f23ef32a7ad521125d6&amp;id=10c01700d9", method: 'get'}
+          %h3 Want more great content delivered to your inbox?
+          %p (no spam ever, unsubscribe at any time)
+          %div
+            %input#form-email{type: "text", placeholder: "email *", value: "", name: "EMAIL"}
+            %input{type: "text", placeholder: "first", value: "", name: "FNAME"}
+          %div
+            %input{type: "submit", value: "Keep Me Updated", name: "subscribe"}
+          #subscribe-result
