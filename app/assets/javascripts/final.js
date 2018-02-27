@@ -1,11 +1,7 @@
 $(document).on('ready turbolinks:load', function() {
   if ($('body').hasAllClasses('c-body final index')) {
 
-    console.log('loaded finaljs')
-
     ajaxMailChimpForm($("#subscribe-form"), $("#subscribe-result"));
-
-
 
     // Turn the given MailChimp form into an ajax version of it.
     // If resultElement is given, the subscribe result is set as html to
@@ -66,7 +62,6 @@ $(document).on('ready turbolinks:load', function() {
           jsonp: "c",
           contentType: "application/json; charset=utf-8",
           error: function(error){
-            console.error('error called from mailchimp callback')
             setTimeout(function() {
               fillFeedback("Une erreur est survenue", "red")
             }, 900);
@@ -74,13 +69,13 @@ $(document).on('ready turbolinks:load', function() {
           success: function(data){
             if (data.result != "success") {
               if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-                fillFeedback("You're already subscribed. Thank you.", "black");
+                fillFeedback("Vous êtes déjà inscrit.", "black");
               } else {
-                var message = data.msg || "Sorry. Unable to subscribe. Please try again later.";
+                var message = data.msg || "Désolé. Essayez plus tard.";
                 fillFeedback(message, "red");              
               }
             } else {
-              fillFeedback("Thank you!<br>You must confirm the subscription in your inbox.", "black");              
+              fillFeedback("Merci. Vous devez confirmer votre inscription dans votre boîte mail.", "black");              
             }
           }
         });
