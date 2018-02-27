@@ -17,11 +17,10 @@ $(document).on('ready turbolinks:load', function() {
         e.preventDefault();
 
         if (!isValidEmail($form)) {
-          var error =  "A valid email address must be provided.";
-          fillFeedback(error, "red")
+          fillFeedback("Adresse e-mail invalide", "red")
         } else {
-          fillFeedback("Subscribing...", "black")
-          submitSubscribeForm($form, $resultElement);
+          fillFeedback("Inscription en cours...", "black")
+          submitSubscribeForm();
         }
       });
 
@@ -40,13 +39,15 @@ $(document).on('ready turbolinks:load', function() {
       }
 
       function fillFeedback(message, color) {
-        $resultElement.css("color", color);
+        $resultElement.css("background-color", color);
+        $resultElement.css("border-color", color);
+        $resultElement.attr("disabled", "disabled");
         $resultElement.html(message);
       }
 
       // Submit the form with an ajax/jsonp request.
       // Based on http://stackoverflow.com/a/15120409/215821
-      function submitSubscribeForm($form, $resultElement) {
+      function submitSubscribeForm() {
         $.ajax({
           type: "GET",
           url: $form.attr("action"),
@@ -61,19 +62,14 @@ $(document).on('ready turbolinks:load', function() {
           },
           success: function(data){
             if (data.result != "success") {
-              var message = data.msg || "Sorry. Unable to subscribe. Please try again later.";
-              $resultElement.css("color", "red");
-
               if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-                message = "You're already subscribed. Thank you.";
-                $resultElement.css("color", "black");
+                fillFeedback("You're already subscribed. Thank you.", "black");
+              } else {
+                var message = data.msg || "Sorry. Unable to subscribe. Please try again later.";
+                fillFeedback(message, "red");              
               }
-
-              $resultElement.html(message);
-
             } else {
-              $resultElement.css("color", "black");
-              $resultElement.html("Thank you!<br>You must confirm the subscription in your inbox.");
+              fillFeedback("Thank you!<br>You must confirm the subscription in your inbox.", "black");              
             }
           }
         });

@@ -1,6 +1,6 @@
 %main.c-final{:role => "main"}
   %section
-    .container.jumbotron.c-home-jumbotron
+    .container.jumbotron
       %h1.jumbotron-heading.font-weight-xbold.text-center Votre score
       %h1.jumbotron-heading.text-center= score
       %p.lead.text-center.mt-5 La mailing list permet d'avoir
@@ -16,8 +16,8 @@
           %h3 Want more great content delivered to your inbox?
           %p (no spam ever, unsubscribe at any time)
           %div
-            %input#form-email{type: "text", placeholder: "email *", value: "", name: "EMAIL"}
-            %input{type: "text", placeholder: "first", value: "", name: "FNAME"}
+            %input#form-email{type: "email", placeholder: "email *", value: "", name: "EMAIL"}
+            %input{type: "text", placeholder: "prénom", value: "", name: "FNAME"}
           %div
-            %input{type: "submit", value: "Keep Me Updated", name: "subscribe"}
-          #subscribe-result
+            %input{type: "submit", value: "Keep Me Updated", name: "subscribe", :class => "btn btn-primary btn-lg"}
+              #subscribe-result.alert-danger
