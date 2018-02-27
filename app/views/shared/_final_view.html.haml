@@ -13,10 +13,8 @@
 
       .d-flex.justify-content-center.mt-5
         %form#subscribe-form{action: "https://github.us11.list-manage.com/subscribe/post-json?u=f19661f23ef32a7ad521125d6&amp;id=10c01700d9", method: 'get'}
-          %h3 Want more great content delivered to your inbox?
-          %p (no spam ever, unsubscribe at any time)
           %div
-            %input#form-email{type: "email", placeholder: "email *", value: "", name: "EMAIL"}
-            %input{type: "text", placeholder: "prénom", value: "", name: "FNAME"}
+            %input#form-email{type: "email", placeholder: "email *", value: "", name: "EMAIL", :class => "form-control form-control-lg"}
+            %input{type: "hidden", placeholder: "prénom", value: "", name: "FNAME"}
           %div
-            %input#subscribe-result{type: "submit", value: "Keep Me Updated", name: "subscribe", :class => "btn btn-primary btn-lg"}
+            %input#subscribe-result{type: "submit", value: "Je m'inscris", name: "subscribe", :class => "btn btn-primary btn-lg"}

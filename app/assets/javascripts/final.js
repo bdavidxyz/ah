@@ -49,6 +49,7 @@ $(document).on('ready turbolinks:load', function() {
             $resultElement.css("border-color", "#007bff");
             $resultElement.removeAttr("disabled");
             $resultElement.val("Je m'inscris");
+            $("#form-email").focus();
           }, 3000);
         }
       }
@@ -66,7 +67,9 @@ $(document).on('ready turbolinks:load', function() {
           contentType: "application/json; charset=utf-8",
           error: function(error){
             console.error('error called from mailchimp callback')
-            fillFeedback("Error occured", "red")
+            setTimeout(function() {
+              fillFeedback("Une erreur est survenue", "red")
+            }, 900);
           },
           success: function(data){
             if (data.result != "success") {
