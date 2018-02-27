@@ -42,7 +42,15 @@ $(document).on('ready turbolinks:load', function() {
         $resultElement.css("background-color", color);
         $resultElement.css("border-color", color);
         $resultElement.attr("disabled", "disabled");
-        $resultElement.html(message);
+        $resultElement.val(message);
+        if (color === "red") {
+          setTimeout(function() {
+            $resultElement.css("background-color", "#007bff");
+            $resultElement.css("border-color", "#007bff");
+            $resultElement.removeAttr("disabled");
+            $resultElement.val("Je m'inscris");
+          }, 3000);
+        }
       }
 
       // Submit the form with an ajax/jsonp request.
