@@ -81,6 +81,6 @@ $(document).on('ready turbolinks:load', function() {
         });
       }
 
-    } // ajaxMailChimpForm
-  } // hasAllClasses
-}); // $(document).on('ready...
+    }    // ajaxMailChimpForm
+  }    // hasAllClasses
+});  // $(document).on('ready...
