@@ -14,7 +14,7 @@
       .d-flex.justify-content-center.mt-5
         %form#subscribe-form.d-flex.flex-column.align-items-center{action: "https://github.us11.list-manage.com/subscribe/post-json?u=f19661f23ef32a7ad521125d6&amp;id=10c01700d9", method: 'get'}
           %div
-            %input#form-email{type: "email", placeholder: "email *", value: "", name: "EMAIL", :class => "form-control form-control-lg"}
+            %input#form-email{type: "email", placeholder: "email *", value: "", name: "EMAIL", :class => "form-control form-control-lg", size: "40"}
             %input#form-firstname{type: "hidden", placeholder: "prénom", value: "", name: "FNAME"}
           %div.mt-2
-            %input#subscribe-result{type: "submit", value: "Je m'inscris", name: "subscribe", :class => "btn btn-primary btn-lg"}
+            %input#subscribe-result{type: "submit", value: "Je m'inscris", name: "subscribe", :class => "btn btn-primary btn-lg", style: "white-space: normal;"}

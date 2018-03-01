@@ -68,7 +68,8 @@ $(document).on('ready turbolinks:load', function() {
           },
           success: function(data){
             if (data.result != "success") {
-              if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
+              console.log(data)
+              if (data.msg && data.msg.indexOf("déjà abonné") >= 0) {
                 fillFeedback("Vous êtes déjà inscrit.", "black");
               } else {
                 var message = data.msg || "Désolé. Essayez plus tard.";
