@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     email = request.env["omniauth.auth"]["info"]["email"]
-    if ENV['ARA_AUTH_ADMIN_USERS'] && ENV['ARA_AUTH_ADMIN_USERS'].split(',').include?(email)
+    if ENV['AH_AUTH_ADMIN_USERS'] && ENV['AH_AUTH_ADMIN_USERS'].split(',').include?(email)
       reset_session
       session[:user_email] = email
       flash[:success] = "Bienvenue #{email} !"
