@@ -7,9 +7,11 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_admin
+    helper_method :current_user
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      return if ENV['AH_SKIP_ADMIN_AUTH']
+      redirect_to signin_path unless current_user
     end
 
     # Override this value to specify the number of elements to display at a time
@@ -17,5 +19,12 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+
+    private
+    
+    def current_user
+      session[:user_email]
+    end
+    
   end
 end
