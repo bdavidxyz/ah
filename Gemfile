@@ -22,13 +22,12 @@ gem "administrate"
 gem "administrate-field-ckeditor", "~> 0.0.8"
 gem "rack-timeout"
 gem "active_type"
-
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
-  gem "rspec-rails"
   gem "guard", ">= 2.2.2", require: false
   gem "guard-livereload", require: false
   gem "rack-livereload"
